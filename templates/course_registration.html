@@ -1,0 +1,110 @@
+{% extends 'admin/master.html' %}
+{% block body %}
+{{ super() }}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+
+<style>
+        .main {
+               text-align: center;
+               width: 100%;
+               direction: rtl;
+            }
+            .container {
+                              margin: 0 auto;
+            }
+           .row_title {
+                direction: rtl;
+                text-align: right;
+                  font-family: Heebo, Arial, sans-serif;
+                    font-style: normal;
+                    font-weight: 400;
+                    font-size: 16px;
+            }
+            .bottom {
+                text-align:center;
+
+            }
+            .square {
+              margin: 0 auto;
+              width: 100px;
+              background-color: #a8d3ff;
+            }
+
+            .card {
+                          margin: 0 auto;
+                          width: 60vw;
+
+            }
+            .card-img-top {
+            }
+
+            .row {
+                margin-bottom: 15px;
+            }
+    </style>
+<div class="main">
+    <div class="container">
+        <div class="card">
+          <div class="card-body">
+              <p class="card-text">{{first_name}} {{last_name}}</p>
+            <h4 class="card-title">רישום לקורס: {{course["name"]}}</h4>
+             <form>
+              <div class="row">
+                <div class="col">
+                    <label for="cat" class="mr-sm-2">קטגוריה:</label>
+                  <input type="text" id="cat" class="form-control" value="{{course['category']}}" readonly>
+                </div>
+                  <div class="col">
+                    <label for="teacher" class="mr-sm-2">מורה:</label>
+                  <input type="text" id="teacher" class="form-control" value="{{course['teacher']}}" readonly>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col">
+                    <label for="desc" class="mr-sm-2">תיאור הקורס:</label>
+                    <textarea id="desc" class="form-control" readonly>{{course['description']}}</textarea>
+                </div>
+              </div>
+               <div class="row">
+                    <div class="col">
+                        <label for="week_day" class="mr-sm-2"> יום:</label>
+                        <input type="text" id="week_day" class="form-control" value="{{course['week_day']}}" readonly>
+                    </div>
+                    <div class="col">
+                    <label for="day_slot" class="mr-sm-2">שעה:</label>
+                  <input type="text" id="day_slot" class="form-control" value="{{course['day_slot']}}" readonly>
+                </div>
+              </div>
+                <div class="row">
+                    <div class="col">
+                        <label for="year" class="mr-sm-2">שנת לימוד:</label>
+                        <input type="text" id="year" class="form-control" value="{{course['school_year']}}" readonly>
+                    </div>
+                    <div class="col">
+                    <label for="week_hours" class="mr-sm-2">מספר שעות שבועיות:</label>
+                  <input type="text" id="week_hours" class="form-control" value="{{course['hours']}}" readonly>
+                </div>
+              </div>
+                  <div class="row">
+                    <div class="col">
+                        <label for="cap" class="mr-sm-2">מספר מקומות מקסימלי:</label>
+                        <input type="text" id="cap" class="form-control" value="{{course['capacity']}}" readonly>
+                    </div>
+                    <div class="col">
+                    <label for="reg" class="mr-sm-2">מספר נרשמים.ות:</label>
+                  <input type="text" id="reg" class="form-control" value="{{course['current_occ']}}" readonly>
+                </div>
+                             <div class="col">
+                    <label for="ava" class="mr-sm-2">מספר מקומות פנויים:</label>
+                  <input type="text" id="ava" class="form-control" value="{{course['places_left']}}" readonly>
+                </div>
+              </div>
+            </form>
+            <a href="#" class="btn btn-primary">רישום לקורס</a>
+          </div>
+        </div>
+
+    </div>
+</div>
+
+{% endblock %}

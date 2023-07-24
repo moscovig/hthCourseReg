@@ -1,0 +1,79 @@
+{% extends 'admin/my_base.html' %}
+
+{% block tail %}
+    {{ super() }}
+
+<style>
+	@media (min-width: 1200px) {
+  		.container {
+    		max-width: 1600px;
+  		}
+  	}
+  	a {
+  		color: #18BC9C;
+  	}
+  	.bg-dark {
+    	background-color: #18BC9C !important;
+    }
+    .active>.nav-link {
+    	color: #2C3E50 !important;
+    }
+    .navbar-dark .navbar-nav .nav-link {
+    	color: #fff;
+    	}
+
+</style>
+<!--  	<link href="{{url_for('static',filename='css/AdminLTE.min.css')}}" rel="stylesheet"></link>-->
+<!--  <link href="{{url_for('static',filename='css/bootstrap.min.css')}}" rel="stylesheet"></link>-->
+
+	<link rel="stylesheet" href="https://unpkg.com/leaflet-control-geocoder@latest/dist/Control.Geocoder.css" />
+	<script src="https://unpkg.com/leaflet-control-geocoder@1.13.0/dist/Control.Geocoder.js" defer></script>
+{% endblock %}
+
+
+{% block access_control %}
+{% if current_user.is_authenticated %}
+
+
+
+	<!-- User Account: style can be found in dropdown.less -->
+
+<!--	<li class="dropdown user user-menu">-->
+<!--	  <a href="#" class="dropdown-toggle" data-toggle="dropdown">-->
+<!--		<span class="hidden-xs">-->
+<!--		   {% if current_user.first_name %}-->
+<!--		   {{ current_user.first_name }}-->
+<!--		   {% else %}-->
+<!--		   {{ current_user.email }}-->
+<!--		   {% endif %}-->
+<!--	   </span>-->
+<!--	</a>-->
+<!--	<ul class="dropdown-menu">-->
+<!--	  &lt;!&ndash; User image &ndash;&gt;-->
+<!--	  <li class="user-header">-->
+<!--		<p>-->
+<!--		   {% if current_user.first_name %}-->
+<!--		   {{ current_user.first_name }}-->
+<!--		   {% else %}-->
+<!--		   {{ current_user.email }}-->
+<!--		   {% endif %}-->
+
+<!--	   </p>-->
+<!--		</li>-->
+<!--	-->
+<!--		<li class="user-footer">-->
+
+			<div class="pull-right">
+			<a href="{{ url_for('security.logout') }}" class="btn btn-default btn-flat" style="background-color:white;">יציאה</a>
+			</div>
+<!--		</li>-->
+<!--	</ul>-->
+<!--	</li>-->
+
+
+{% endif %}
+
+
+
+{% endblock %}
+

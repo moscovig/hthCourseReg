@@ -1,0 +1,53 @@
+{% extends 'admin/model/list.html' %}
+
+{% block list_row_actions	 %}
+
+
+    {{ super() }}
+    <style>
+         * {
+            direction: rtl;
+            text-align: right;
+        }
+        .alert-danger {
+                direction: rtl;
+                text-align: right;
+            }
+    </style>
+
+    {% set is_slot_available = True %}
+    {% for tt_dict in user_ttables %}
+        {% if tt_dict["day_slot"] == get_value(row, "day_slot") and tt_dict["week_day"] == get_value(row, "week_day") %}
+            {% set is_slot_available = False %}
+        {% endif %}
+    {% if is_slot_available %}
+        {% if get_value(row, "remain_capacity") > 0 %}
+           <a href="{{ url_for('c_reg.index') }}?course_id={{get_pk_value(row)}}" class="btn btn-primary">צפיה ורישום</a>
+        {% else %}
+           <div class="alert alert-danger">
+                <strong>הקורס מלא!</strong>   ניתן לבדוק שוב בהמשך
+            </div>
+        {% endif %}
+    {% else %}
+                   <div class="alert alert-danger">
+                <strong>השעה והיום ({{get_value(row, "week_day")}}, שעה {{get_value(row, "day_slot")}}) תפוסים</strong>
+            </div>
+    {% endif %}
+   {% endfor %}
+
+{% endblock %}
+
+{% block list_header	%}
+    <style>
+
+           .row_title {
+                direction: rtl;
+                text-align: right;
+                  font-family: Heebo, Arial, sans-serif;
+                    font-style: normal;
+                    font-weight: 400;
+                    font-size: 16px;
+            }
+    </style>
+    {{ super() }}
+{% endblock %}

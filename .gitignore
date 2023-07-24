@@ -1,0 +1,15 @@
+./lib
+env
+venv
+venv2
+israel_roads.txt
+.idea/*
+.idea/workspace.xml
+workspace.xml
+vcs.xml
+nohup.out
+*.pyc
+bower_components
+node_modules
+package-lock.json
+yarn.lock

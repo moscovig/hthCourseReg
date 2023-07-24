@@ -1,0 +1,2 @@
+CREATE DATABASE hthdb COLLATE Hebrew_CI_AS
+
