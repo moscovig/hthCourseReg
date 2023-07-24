@@ -1,0 +1,2 @@
+# hthCourses
+# hthCourseReg
